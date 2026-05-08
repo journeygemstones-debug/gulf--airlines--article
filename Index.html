@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✈️ Sky Under Siege: How the Iran War Is Grounding Gulf Aviation</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --deep-navy: #0A1628;
+    --mid-navy: #122040;
+    --light-navy: #1C3160;
+    --cream: #F5EDD8;
+    --off-white: #FAF7F2;
+    --accent-red: #C0392B;
+    --text-muted: #8B9BB4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--deep-navy);
+    color: var(--cream);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    background: linear-gradient(160deg, #0A1628 0%, #1a0a08 60%, #2a1010 100%);
+  }
+
+  .hero-bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.28;
+    mix-blend-mode: luminosity;
+    z-index: 0;
+  }
+
+  .article-img-wrap {
+    margin: 40px 0;
+    position: relative;
+  }
+
+  .article-img-wrap img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.88) contrast(1.05);
+  }
+
+  .img-caption {
+    background: rgba(10,22,40,0.85);
+    padding: 10px 16px;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border-left: 3px solid var(--gold);
+  }
+
+  .img-caption span { color: var(--gold); }
+
+  .hero-sky {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,168,76,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 20% 30%, rgba(192,57,43,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse 40% 60% at 80% 20%, rgba(28,49,96,0.4) 0%, transparent 60%);
+  }
+
+  /* SVG plane silhouette */
+  .plane-silhouette {
+    position: absolute;
+    top: 18%;
+    right: 8%;
+    width: 260px;
+    opacity: 0.18;
+    filter: drop-shadow(0 0 30px rgba(201,168,76,0.3));
+    animation: drift 8s ease-in-out infinite;
+  }
+
+  @keyframes drift {
+    0%, 100% { transform: translateY(0) rotate(-4deg); }
+    50% { transform: translateY(-18px) rotate(-2deg); }
+  }
+
+  /* Grid lines for atmosphere */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 80px 6% 70px;
+    max-width: 860px;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.4);
+    padding: 6px 14px;
+    margin-bottom: 28px;
+    background: rgba(201,168,76,0.06);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.4rem, 6vw, 5.2rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: rgba(245,237,216,0.65);
+    font-weight: 300;
+    max-width: 560px;
+    margin-bottom: 36px;
+    line-height: 1.6;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .hero-meta span { color: var(--gold); }
+
+  .divider-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0.3;
+    margin: 0;
+  }
+
+  /* ── STAT STRIP ── */
+  .stat-strip {
+    background: var(--mid-navy);
+    padding: 32px 6%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 2px;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 20px 16px;
+    position: relative;
+  }
+
+  .stat-item + .stat-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 20%; height: 60%;
+    width: 1px;
+    background: rgba(201,168,76,0.2);
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  /* ── MAIN CONTENT ── */
+  .article-body {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 6%;
+  }
+
+  /* Section intro */
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(201,168,76,0.25);
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.2;
+    margin-bottom: 22px;
+  }
+
+  p {
+    font-size: 1.05rem;
+    color: rgba(245,237,216,0.82);
+    margin-bottom: 22px;
+    max-width: 720px;
+  }
+
+  /* Airline cards */
+  .airline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+    margin: 50px 0;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .airline-card {
+    background: var(--mid-navy);
+    padding: 36px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .airline-card:hover { background: var(--light-navy); }
+
+  .airline-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+
+  .card-emirates::before { background: linear-gradient(90deg, #C9A84C, #8B6914); }
+  .card-etihad::before   { background: linear-gradient(90deg, #4A90D9, #1C3160); }
+  .card-qatar::before    { background: linear-gradient(90deg, #8B1A2E, #C0392B); }
+  .card-flydubai::before { background: linear-gradient(90deg, #E07020, #C9A84C); }
+
+  .airline-icon {
+    font-size: 2rem;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .airline-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .recovery-bar-wrap {
+    margin: 14px 0 10px;
+  }
+
+  .recovery-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .recovery-bar {
+    height: 6px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .recovery-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--gold), #e8c87a);
+    transition: width 1.5s ease;
+  }
+
+  .card-text {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-top: 12px;
+  }
+
+  /* Pull quote */
+  .pull-quote {
+    margin: 60px 0;
+    padding: 40px 48px;
+    border-left: 4px solid var(--gold);
+    background: linear-gradient(135deg, rgba(201,168,76,0.06), rgba(28,49,96,0.3));
+    position: relative;
+  }
+
+  .pull-quote::before {
+    content: '\201C';
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--gold);
+    opacity: 0.15;
+    position: absolute;
+    top: -10px; left: 20px;
+    line-height: 1;
+  }
+
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+    font-style: italic;
+    color: var(--cream);
+    opacity: 0.95;
+    max-width: 100%;
+    margin: 0 0 16px;
+  }
+
+  .pull-quote cite {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* Impact section with side-by-side layout */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin: 50px 0;
+  }
+
+  @media (max-width: 680px) {
+    .two-col { grid-template-columns: 1fr; gap: 30px; }
+    .airline-grid { grid-template-columns: 1fr; }
+    .stat-strip { grid-template-columns: repeat(2, 1fr); }
+    .hero-content { padding: 60px 5% 50px; }
+  }
+
+  /* Timeline */
+  .timeline {
+    margin: 50px 0;
+    position: relative;
+    padding-left: 32px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold), rgba(201,168,76,0.1));
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 36px;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -28px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--deep-navy);
+    box-shadow: 0 0 10px rgba(201,168,76,0.5);
+  }
+
+  .tl-date {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+  .tl-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 6px;
+  }
+
+  .tl-body {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 580px;
+    margin: 0;
+  }
+
+  /* Fuel impact banner */
+  .impact-banner {
+    background: linear-gradient(135deg, rgba(192,57,43,0.15), rgba(10,22,40,0.8));
+    border: 1px solid rgba(192,57,43,0.3);
+    padding: 32px 36px;
+    margin: 40px 0;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .impact-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .impact-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #E57373;
+    margin-bottom: 8px;
+  }
+
+  .impact-text {
+    font-size: 0.92rem;
+    color: rgba(245,237,216,0.72);
+    margin: 0;
+  }
+
+  /* Outlook section */
+  .outlook-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin: 50px 0;
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.15);
+  }
+
+  @media (max-width: 680px) {
+    .outlook-grid { grid-template-columns: 1fr; }
+  }
+
+  .outlook-card {
+    background: var(--mid-navy);
+    padding: 28px 24px;
+    text-align: center;
+  }
+
+  .outlook-emoji { font-size: 2rem; margin-bottom: 12px; display: block; }
+
+  .outlook-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 10px;
+  }
+
+  .outlook-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Footer / source note */
+  .article-footer {
+    border-top: 1px solid rgba(201,168,76,0.15);
+    padding: 40px 6%;
+    text-align: center;
+    background: var(--mid-navy);
+  }
+
+  .article-footer p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .share-line {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  /* Highlight text */
+  strong { color: var(--cream); font-weight: 600; }
+
+  .gold { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <img class="hero-bg-img" src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1600&q=80" alt="Commercial aircraft flying above clouds">
+  <div class="hero-sky"></div>
+
+  <!-- Inline SVG plane -->
+  <svg class="plane-silhouette" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" fill="currentColor" style="color:#C9A84C">
+    <path d="M180 38 L10 10 L20 38 L10 66 L180 38 Z M60 38 L10 10 M60 38 L10 66"/>
+    <path d="M100 38 L60 15 L65 38 L60 61 Z"/>
+    <path d="M140 38 L120 30 L122 38 L120 46 Z"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-tag">✈️ Sky Under Siege · Aviation Crisis · May 2026</div>
+    <h1>How the Iran War Is<br><em>Grounding Gulf Aviation</em></h1>
+    <p class="hero-sub">✈️ Sky Under Siege: How the Iran War Is Grounding Gulf Aviation — the crisis reshaping the world's busiest skies.</p>
+    <div class="hero-meta">
+      <div>By <span>Aviation Desk</span></div>
+      <div>Updated <span>May 8, 2026</span></div>
+      <div>~5 min read</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- ══ STAT STRIP ══ -->
+<div class="stat-strip">
+  <div class="stat-item">
+    <span class="stat-num">12,000+</span>
+    <span class="stat-label">Flights Cancelled</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">1.8M</span>
+    <span class="stat-label">Passengers Disrupted</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">66%</span>
+    <span class="stat-label">Drop in Dubai Traffic (March)</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">2×</span>
+    <span class="stat-label">Jet Fuel Price Spike</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">90%</span>
+    <span class="stat-label">Emirates Recovery (May)</span>
+  </div>
+</div>
+
+<!-- ══ MAIN BODY ══ -->
+<div class="article-body">
+
+  <!-- Intro -->
+  <div class="section-label">The Story</div>
+  <h2>When the Middle East's Busiest Skies Went Silent</h2>
+  <p>For decades, Dubai, Doha, and Abu Dhabi have been the world's great crossroads of the skies — the invisible pivot points where a passenger from London might connect to Singapore, or a traveller from Sydney arrive refreshed for a business meeting in New York. The Gulf's "Big Three" — <strong>Emirates, Qatar Airways</strong>, and <strong>Etihad Airways</strong> — built an aviation empire on this geographic gift.</p>
+  <p>Then, on February 28, 2026, the war began. As conflict erupted between Israel, the United States, and Iran, Middle Eastern airspace became a danger zone overnight. Airports closed. Thousands of flights were cancelled in hours. Nearly 1.8 million passengers found themselves stranded, rerouted, or waiting anxiously at departure boards that showed nothing but red.</p>
+  <p>The impact was unlike anything the region had seen since the COVID-19 pandemic — and in some ways, more concentrated. In March alone, Dubai International Airport — the world's busiest — recorded a <strong class="gold">66% collapse in passenger numbers</strong>.</p>
+
+  <!-- Image 1: Airport -->
+  <div class="article-img-wrap">
+    <img src="https://images.unsplash.com/photo-1569629743817-70d8db6c323b?w=1400&q=80" alt="Airport terminal with aircraft at gates">
+    <div class="img-caption"><span>📍 Gulf Hubs</span> — Dubai, Doha & Abu Dhabi handle hundreds of millions of passengers annually, connecting Europe, Asia & Africa</div>
+  </div>
+
+  <!-- Pull quote -->
+  <div class="pull-quote">
+    <p>Aviation is always impacted by crisis. This is another shock — and what you're seeing is airlines in the Gulf making decisions on their fleet, their schedule, and how they look at their internal structure to re-emerge.</p>
+    <cite>— James Hogan, former CEO, Etihad Airways</cite>
+  </div>
+
+  <!-- Airline cards -->
+  <div class="section-label">Airline by Airline</div>
+  <h2>How Each Carrier Has Fared</h2>
+  <p>Recovery has been uneven. While all three major carriers were grounded or severely limited in late February and March, they have clawed back capacity at different speeds through April and May 2026.</p>
+
+  <div class="airline-grid">
+    <div class="airline-card card-emirates">
+      <span class="airline-icon">✈️</span>
+      <div class="airline-name">Emirates</div>
+      <div class="recovery-bar-wrap">
+        <div class="recovery-label"><span>Capacity Restored</span><span class="gold">~90%</span></div>
+        <div class="recovery-bar"><div class="recovery-fill" style="width:90%"></div></div>
+      </div>
+      <p class="card-text">The Dubai-based giant has led the recovery, steadily rebuilding flight numbers week by week. By early May 2026, Emirates was operating close to 90% of its pre-war schedule — though still below its usual 1,250–1,300 daily flights. New Boeing 777X deliveries due late 2026 may be delayed until the market fully stabilises.</p>
+    </div>
+
+    <div class="airline-card card-qatar">
+      <span class="airline-icon">✈️</span>
+      <div class="airline-name">Qatar Airways</div>
+      <div class="recovery-bar-wrap">
+        <div class="recovery-label"><span>Capacity Restored</span><span class="gold">~75%</span></div>
+        <div class="recovery-bar"><div class="recovery-fill" style="width:75%"></div></div>
+      </div>
+      <p class="card-text">Qatar has shown strong momentum and is the most aggressive in scheduling future capacity jumps — with a bump planned for May 16 and another for June 16. Doha's position slightly further from the main conflict zone has aided its recovery, and the airline recently secured a major Boeing order as a signal of long-term confidence.</p>
+    </div>
+
+    <div class="airline-card card-etihad">
+      <span class="airline-icon">✈️</span>
+      <div class="airline-name">Etihad Airways</div>
+      <div class="recovery-bar-wrap">
+        <div class="recovery-label"><span>Capacity Restored</span><span class="gold">~72%</span></div>
+        <div class="recovery-bar"><div class="recovery-fill" style="width:72%"></div></div>
+      </div>
+      <p class="card-text">Abu Dhabi's flag carrier has faced the highest percentage impact relative to its fleet size. However, flexible rebooking and refund policies extended through May 2026, combined with a 25% reduction in loyalty tier thresholds, have helped retain its most valuable customers through the disruption.</p>
+    </div>
+
+    <div class="airline-card card-flydubai">
+      <span class="airline-icon">✈️</span>
+      <div class="airline-name">flydubai & Regional Carriers</div>
+      <div class="recovery-bar-wrap">
+        <div class="recovery-label"><span>Capacity Restored</span><span class="gold">~74%</span></div>
+        <div class="recovery-bar"><div class="recovery-fill" style="width:74%"></div></div>
+      </div>
+      <p class="card-text">Smaller carriers and low-cost operators were hit hard and lack the financial cushion of the Big Three. Regional short-haul routes are recovering faster than long-haul international services, but volatile fuel prices and insurance premiums continue to squeeze margins across the board.</p>
+    </div>
+  </div>
+
+  <!-- Image 2: Plane in flight -->
+  <div class="article-img-wrap">
+    <img src="https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=1400&q=80" alt="Commercial airplane flying above clouds at sunset">
+    <div class="img-caption"><span>✈️ Recovery in Progress</span> — Gulf carriers are steadily rebuilding flight schedules through May 2026 after weeks of near-total grounding</div>
+  </div>
+
+  <!-- Two-column: Fuel + Loyalty -->
+  <div class="two-col">
+    <div>
+      <div class="section-label">The Fuel Crisis</div>
+      <h2>A Cost Shock That Shook the World</h2>
+      <p>Beyond grounding planes, the war delivered a second blow: jet fuel prices roughly doubled. This sent shockwaves far beyond Gulf airspace. Airlines in Europe and Asia that had nothing to do with the conflict found themselves imposing fuel surcharges and trimming routes.</p>
+      <p>Premium cabin fares surged as available seats became scarce. Some carriers implemented $15–30 surcharges on new bookings within days. Cargo delays cascaded into global supply chains, and the broader energy market remained on edge throughout March and April.</p>
+    </div>
+    <div>
+      <div class="section-label">Loyalty Under Pressure</div>
+      <h2>Keeping Frequent Flyers On Side</h2>
+      <p>With their most valuable passengers flying less — or not at all — Gulf carriers moved quickly to protect loyalty relationships. Etihad cut tier qualification thresholds by 25% and automatically promoted some members. Qatar Airways extended status across various Privilege Club tiers.</p>
+      <p>Industry analysts compared these moves to early COVID-era measures, noting that protecting premium customer relationships now is cheaper than rebuilding them later. Emirates faced pressure to implement similar policies as the months wore on.</p>
+    </div>
+  </div>
+
+  <!-- Impact banner -->
+  <div class="impact-banner">
+    <div class="impact-icon">⚠️</div>
+    <div>
+      <div class="impact-title">The Long-Term Brand Risk</div>
+      <p class="impact-text">For years, Gulf carriers built their dominance on being the world's most <strong>reliable hub connectors</strong> between Europe and Asia-Pacific. The war has exposed a structural vulnerability in that model. Even after peace returns, passengers and corporate travel managers may diversify away from Gulf hubs — favouring direct routes via northern Europe, Africa, or East Asia. Rebuilding trust in the route network could take anywhere from six months to two years, according to aviation industry veterans.</p>
+    </div>
+  </div>
+
+  <!-- Timeline -->
+  <div class="section-label">Key Moments</div>
+  <h2>A Crisis in Chronological Order</h2>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="tl-date">Feb 28, 2026</div>
+      <div class="tl-title">War Begins — Airports Shut Overnight</div>
+      <p class="tl-body">Israel and the United States launch strikes on Iran. Gulf airports and airspace close in rapid succession. Thousands of flights are cancelled within hours; stranded passengers fill terminals across the region.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">Early March 2026</div>
+      <div class="tl-title">Partial Resumption — Missile Threats Remain</div>
+      <p class="tl-body">Emirates and Etihad resume limited schedules from the UAE. A chartered Air France evacuation flight is forced to turn back mid-flight due to active missile activity. British repatriation flights begin operating through Oman.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">March 2026</div>
+      <div class="tl-title">Dubai International Logs 66% Passenger Drop</div>
+      <p class="tl-body">Monthly passenger data confirms the severity of the crisis at the world's busiest airport. Jet fuel prices have doubled. Loyalty programs begin offering emergency status protections to retain premium flyers.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">April 2026</div>
+      <div class="tl-title">UAE Airspace Fully Reopened — Recovery Accelerates</div>
+      <p class="tl-body">UAE civil aviation authorities lift all capacity restrictions. Dubai Airports CEO Paul Griffiths signals a rapid return to full capacity. Emirates reaches around 80% of pre-war operations; Qatar approaches 60–70%.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">May 2026</div>
+      <div class="tl-title">Emirates Hits ~90% — Full Recovery in Sight</div>
+      <p class="tl-body">Emirates is close to 90% of pre-war flight numbers. Etihad and Qatar are at 70–80%. Some European and Asian airlines have yet to resume Gulf routes but are expected to do so by late May. No peace deal is yet in place, and the situation remains fluid.</p>
+    </div>
+  </div>
+
+  <!-- Outlook -->
+  <div class="section-label">Looking Ahead</div>
+  <h2>Three Scenarios for Gulf Aviation</h2>
+
+  <div class="outlook-grid">
+    <div class="outlook-card">
+      <span class="outlook-emoji">🟢</span>
+      <div class="outlook-title">Best Case<br><small style="font-size:0.7rem;font-family:sans-serif;opacity:0.6">Conflict ends by Q3 2026</small></div>
+      <p class="outlook-desc">Full capacity restoration by June–July. Passenger confidence rebounds within months. Gulf carriers resume growth trajectories with minimal lasting market-share damage.</p>
+    </div>
+    <div class="outlook-card">
+      <span class="outlook-emoji">🟡</span>
+      <div class="outlook-title">Base Case<br><small style="font-size:0.7rem;font-family:sans-serif;opacity:0.6">Ceasefire holds, no peace</small></div>
+      <p class="outlook-desc">Gradual recovery continues through 2026. Some permanent rerouting by travellers. Gulf hubs remain relevant but face structural competition from alternative corridors. Full recovery takes 12–18 months.</p>
+    </div>
+    <div class="outlook-card">
+      <span class="outlook-emoji">🔴</span>
+      <div class="outlook-title">Worst Case<br><small style="font-size:0.7rem;font-family:sans-serif;opacity:0.6">Conflict re-escalates</small></div>
+      <p class="outlook-desc">Renewed hostilities force airspace closures again. Fuel supplies tighten, forcing airlines to ground planes. Permanent network adjustments and possible consolidation among weaker regional carriers. Recovery pushed to 2027–2028.</p>
+    </div>
+  </div>
+
+  <!-- Image 3: Runway/Dusk -->
+  <div class="article-img-wrap">
+    <img src="https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=1400&q=80" alt="Airport runway at dusk with aircraft lights">
+    <div class="img-caption"><span>🌅 Path to Recovery</span> — Airlines and passengers alike are watching the skies for signs of lasting stability in the region</div>
+  </div>
+
+  <!-- Closing -->
+  <div class="section-label">Bottom Line</div>
+  <h2>The Skies Will Clear — The Question Is When</h2>
+  <p>Gulf airlines have weathered turbulence before — the 2020 pandemic, geopolitical embargoes, the 2010 volcanic ash crisis. Each time, they have emerged and rebuilt. The current disruption, while severe, is still less globally catastrophic than COVID-19 at its peak. But the concentrated geographic impact on the world's most strategically vital aviation hubs is a stark reminder of how quickly the invisible architecture of modern travel can fracture.</p>
+  <p>For passengers, the immediate advice is to monitor bookings closely, take advantage of flexible rebooking policies, and consider travel insurance for Gulf-region itineraries. For the airlines themselves, the months ahead will define whether this crisis becomes a footnote or a turning point.</p>
+  <p><strong class="gold">The engines are running. The question is whether the skies will stay open long enough for them to soar again.</strong></p>
+
+</div>
+
+<!-- ══ FOOTER ══ -->
+<div class="article-footer">
+  <span class="share-line">📤 Share this article to keep your network informed</span>
+  <p>This article is an original editorial summary written for informational purposes, based on publicly available reporting from May 2026. Statistics cited reflect conditions as of early May 2026 and may have changed. All airline capacity figures are approximate. No proprietary data, copyrighted images, or third-party creative assets have been reproduced. Free to share with attribution.</p>
+</div>
+
+</body>
+</html>
